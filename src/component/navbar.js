@@ -1,15 +1,15 @@
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const Navbar = ({ setValueSearch, onSearch, repeatData }) => {
-    const [isNavbarOpen, setIsNavbarOpen] = useState(false); // Ubah nilai awal menjadi `false`
+    const [isNavbarOpen, setIsNavbarOpen] = useState(false);
     const location = useLocation();
     const currentURL = location.pathname;
     const cheking = currentURL !== '/' ? true : false;
 
     const handleNavbarToggle = () => {
-        setIsNavbarOpen(!isNavbarOpen); // Toggle nilai antara true dan false
+        setIsNavbarOpen(!isNavbarOpen);
     };
 
     const home = () => {

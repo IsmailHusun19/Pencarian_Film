@@ -35,15 +35,15 @@ const Detail = () => {
     return (
          <div className="card container-detail">
             <div className="row g-0 detail">
-                <div className="col-md-3">
+                <div className="col-md-3 foto-detail">
                 <img src={movie.poster_path ? `${process.env.REACT_APP_IMAGE}/${movie.poster_path}` : myImage} className="img-fluid rounded-start image-detail" alt={movie.title} />
                 </div>
-                <div className="col-md-8">
-                <div className="card-body">
-                   <h3 className='Pstar'><FontAwesomeIcon className='star' icon={faStar} />{movie.vote_average.toFixed(1)}</h3>
-                    <h5 className="card-title">{movie.title}</h5>
-                    <p className="card-text">{movie.overview}</p>
-                    <div className="btn-favorit">
+                <div className="col-md-8 keterangan-detail">
+                <div className="card-body body-ket-detail">
+                   <h3 className='Pstar pstar-detail'><FontAwesomeIcon className='star star-detail' icon={faStar} />{movie.vote_average.toFixed(1)}</h3>
+                    <h5 className="card-title title-detail">{movie.title}</h5>
+                    <p className="card-text ket-detail">{movie.overview}</p>
+                    <div className="btn-favorit-detail">
                       <h3>
                         <FontAwesomeIcon
                           icon={isLiked ? solidHeart : regularHeart}

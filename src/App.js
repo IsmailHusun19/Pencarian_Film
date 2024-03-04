@@ -8,6 +8,7 @@ import Detail from './component/detail';
 import NowPlaying from './pages/nowplaying';
 import TopRating from './pages/topRating';
 import UpComing from './pages/upComing';
+import Footer from './component/footer';
 
 function App() {
   const [movie, setMovie] = useState([]);
@@ -51,6 +52,7 @@ function App() {
           <Route path="UpComing" element={<UpComing />} />
           <Route path="detail" element={<Detail />} />
         </Routes>
+        <Footer />
     </Router>
   );
 }

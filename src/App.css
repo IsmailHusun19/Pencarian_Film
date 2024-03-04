@@ -142,3 +142,82 @@ h1.not-data {
     align-items: center;
     justify-content: center;
 }
+
+.detail {
+    display: flex;
+    gap: 15px;
+}
+
+.title-detail {
+    font-size: xx-large;
+}
+
+.ket-detail{
+    font-size: larger;
+}
+
+.pstar-detail, .star-detail {
+    font-size: larger;
+}
+
+.foto-detail, .keterangan-detail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.body-ket-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 10px !important;
+    padding: 20px 5px !important;
+}
+
+.btn-favorit-detail {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+
+@media screen and (max-width: 499px){
+    .container-detail {
+        height: max-content !important;
+        padding: 90px 0 20px 0 !important;
+    }
+    .title-detail {
+        font-size: 25px !important;
+    }
+    
+    .ket-detail{
+        font-size: larger;
+    }
+    
+    .pstar-detail, .star-detail {
+        font-size: larger;
+    }
+    .body-ket-detail {
+        gap: 5px !important;
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width: 1000px) and (min-height: 1000px) and (max-height: 1150px) {
+    .container-detail {
+        width: 100% !important;
+        height: max-content !important;
+        padding: 90px 0 0 0 !important;
+    }
+    .detail {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .foto-detail{
+        width: 100% !important;
+    }
+    .ket-detail, .keterangan-detail{
+        width: 95% !important;
+    }
+
+}
