@@ -3,40 +3,27 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faHeart as solidHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as regularHeart } from '@fortawesome/free-regular-svg-icons';
 import { Link } from 'react-router-dom';
-import React, { useState } from 'react';
-import Dexie from 'dexie';
-
-class MyDatabase extends Dexie {
-  constructor() {
-    super('MyDatabase');
-    this.version(1).stores({
-      myTable: 'id, title, star, deskripsi',
-    });
-  }
-}
+import { useState } from 'react';
+import { getAllDataFromTable, Liked, DeleteLiked  } from './LikedFavorit';
 
 const MovieCard = ({ movie }) => {
   const [isLiked, setIsLiked] = useState(false);
-
-  const handleLikeClick = () => {
+  const handleLikeClick = (id) => {
     setIsLiked(!isLiked);
-    if (!isLiked) {
-      const db = new MyDatabase();
-      db.myTable.add({ 
-        id: movie.id, 
-        title : movie.title, 
-        star : movie.vote_average,
-        deskripsi : movie.overview
-
-        })
-        .then(() => {
-          return
-        })
-        .catch((error) => {
-          return error.message
-        });
+    if (!isLiked){
+      Liked(movie);
+    } else {
+      DeleteLiked(id);
     }
   };
+
+  getAllDataFromTable().then((data) => {
+    const idMovie = movie.id;
+    const movieIndex = data.findIndex((m) => m.id === idMovie);
+    if (movieIndex !== -1) {
+      setIsLiked(true);
+    }
+  });
 
   return (
     <div>
@@ -51,7 +38,7 @@ const MovieCard = ({ movie }) => {
             <h3>
               <FontAwesomeIcon
                 icon={isLiked ? solidHeart : regularHeart}
-                onClick={handleLikeClick}
+                onClick={() => handleLikeClick(movie.id)}
                 style={{ cursor: 'pointer', color: '#ff454b' }}
               />
             </h3>

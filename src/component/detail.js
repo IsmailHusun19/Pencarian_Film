@@ -6,11 +6,13 @@ import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faHeart as solidHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as regularHeart } from '@fortawesome/free-regular-svg-icons';
+import { Liked, getAllDataFromTable, DeleteLiked } from '../ulits/LikedFavorit';
 
 const Detail = () => {
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const idMovie = queryParams.get('movie');
+    console.log(idMovie);
     const [movie, setMovie] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
@@ -25,13 +27,27 @@ const Detail = () => {
 
       const [isLiked, setIsLiked] = useState(false);
 
-      const handleLikeClick = () => {
+      const handleLikeClick = (id) => {
         setIsLiked(!isLiked);
+        if (!isLiked){
+          Liked(movie);
+        }else {
+          DeleteLiked(id);
+        }
       };
       
       if (loading) {
         return;
       }
+      getAllDataFromTable().then((data) => {
+        const idMovie = movie.id;
+        const movieIndex = data.findIndex((m) => m.id === idMovie);
+      
+        if (movieIndex !== -1) {
+          setIsLiked(true);
+        }
+      });
+
     return (
          <div className="card container-detail">
             <div className="row g-0 detail">
@@ -47,7 +63,7 @@ const Detail = () => {
                       <h3>
                         <FontAwesomeIcon
                           icon={isLiked ? solidHeart : regularHeart}
-                          onClick={handleLikeClick}
+                          onClick={() => handleLikeClick(movie.id)}
                           style={{ cursor: 'pointer', color: '#ff454b', fontSize: '35px'}}
                         />
                       </h3>

@@ -9,6 +9,7 @@ import NowPlaying from './pages/nowplaying';
 import TopRating from './pages/topRating';
 import UpComing from './pages/upComing';
 import Footer from './component/footer';
+import Favorit from './pages/favorit';
 
 function App() {
   const [movie, setMovie] = useState([]);
@@ -51,6 +52,7 @@ function App() {
           <Route path="TopRating" element={<TopRating />} />
           <Route path="UpComing" element={<UpComing />} />
           <Route path="detail" element={<Detail />} />
+          <Route path="favorit" element={<Favorit />} />
         </Routes>
         <Footer />
     </Router>

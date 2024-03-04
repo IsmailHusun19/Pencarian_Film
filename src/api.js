@@ -30,6 +30,5 @@ export const upComing = async () => {
 
 export const detailMovie = async (idMovie) => {
     const detail = await axios.get(`${BASEURL}/movie/${idMovie}?&api_key=${APIURL}`);
-    console.log(detail.data)
     return detail.data
 }

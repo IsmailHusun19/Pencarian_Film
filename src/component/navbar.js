@@ -32,7 +32,7 @@ const Navbar = ({ setValueSearch, onSearch, repeatData }) => {
                 <div className={`collapse navbar-collapse ${isNavbarOpen ? 'show' : ''}`} id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item"><Link className="nav-link active" to="/" onClick={home}>Home</Link></li>                                    
-                        <li className="nav-item"><Link className="nav-link active" to="detail">Favorit</Link></li>
+                        <li className="nav-item"><Link className="nav-link active" to="favorit">Favorit</Link></li>
                         <li className="nav-item"><Link className="nav-link active" to="NowPlaying" onClick={handleNavbarToggle}>Now Playing</Link></li>
                         <li className="nav-item"><Link className="nav-link active" to="TopRating" onClick={handleNavbarToggle}>Top Rating</Link></li>
                         <li className="nav-item"><Link className="nav-link active" to="UpComing" onClick={handleNavbarToggle}>Up Coming</Link></li>
