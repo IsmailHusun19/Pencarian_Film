@@ -16,8 +16,6 @@ const TopRating = () => {
       return;
     }
 
-    console.log(movie)
-
     return (
         <>
             <Home movie={(movie)} />

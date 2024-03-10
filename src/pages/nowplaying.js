@@ -15,7 +15,6 @@ const NowPlaying = () => {
     if (loading) {
       return;
     }
-    console.log(movie);
 
     return (
         <>

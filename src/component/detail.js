@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faHeart as solidHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as regularHeart } from '@fortawesome/free-regular-svg-icons';
 import { Liked, getAllDataFromTable, DeleteLiked } from '../ulits/LikedFavorit';
+import moment from 'moment';
+import 'moment/locale/id';
 
 const Detail = () => {
     const location = useLocation();
@@ -48,6 +50,13 @@ const Detail = () => {
         }
       });
 
+      const formatTanggal = (tanggal) => {
+        const parsedDate = moment(`${tanggal}`, 'YYYY-MM-DD');
+        return parsedDate.format("DD MMMM YYYY");
+      }
+
+      console.log(movie)
+
     return (
          <div className="card container-detail">
             <div className="row g-0 detail">
@@ -58,7 +67,8 @@ const Detail = () => {
                 <div className="card-body body-ket-detail">
                    <h3 className='Pstar pstar-detail'><FontAwesomeIcon className='star star-detail' icon={faStar} />{movie.vote_average.toFixed(1)}</h3>
                     <h5 className="card-title title-detail">{movie.title}</h5>
-                    <p className="card-text ket-detail">{movie.overview}</p>
+                    <p className="ket-detail">{movie.overview}</p>
+                    <p className="ket-detail">{formatTanggal(movie.release_date)}</p>
                     <div className="btn-favorit-detail">
                       <h3>
                         <FontAwesomeIcon

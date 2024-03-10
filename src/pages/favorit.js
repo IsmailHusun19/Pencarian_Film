@@ -26,7 +26,7 @@ const Favorit = () => {
   
       return (
           <>
-              <Home movie={(movies)} />
+              <Home movie={(movies)} favorit={true} />
           </>
       )
 }
