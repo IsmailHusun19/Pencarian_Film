@@ -1,7 +1,6 @@
 import MovieList from '../ulits/movieList';
 
 const Home = ({ movie, favorit }) => {
-    console.log(favorit)
     return (
         <>
             <div className='container-film'>

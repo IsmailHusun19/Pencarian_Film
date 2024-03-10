@@ -14,7 +14,6 @@ const Detail = () => {
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const idMovie = queryParams.get('movie');
-    console.log(idMovie);
     const [movie, setMovie] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
@@ -54,8 +53,6 @@ const Detail = () => {
         const parsedDate = moment(`${tanggal}`, 'YYYY-MM-DD');
         return parsedDate.format("DD MMMM YYYY");
       }
-
-      console.log(movie)
 
     return (
          <div className="card container-detail">

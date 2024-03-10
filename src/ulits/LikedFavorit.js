@@ -31,8 +31,6 @@ export const DeleteLiked = async (id) => {
   try {
     await db.open();
     await db.myTable.delete(id);
-
-    console.log('Data deleted successfully');
   } catch (error) {
     console.error('Error while deleting data:', error);
   } finally {
